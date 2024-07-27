@@ -1,0 +1,51 @@
+ask harsh -
+1.check resit role to be added or not in groups
+2.check enter button on search in quickblox
+1.remove broadcast messages
+2.quick join ia testing
+3.check with harsh about chat app hibernate issue while running app
+1.add logs
+2.check blob api
+3.check fullName for admin in model and view
+4.remove console logs from quickblox sample code
+4.add static files from s3 
+5.remove localhost:8080 in react master branch
+6.add quickblox_group and group members table in prod db(give query)
+7.decrease quickblox height
+8.db and webconfig not working with react
+9.if student not created in quickblox showing login error on page
+10.where to keep close button for chat
+11.QuickBloxBaseUrl=https://api.quickblox.com/(from props file)
+12.change courseCordinator fullName to CourseCoordinator
+13.remove empty check for fullName
+15.branch ltidemo - feature/quickBlox_fullView_Chat
+16.branch gateway - feature/loadbalancer_Chat_App
+17.timelineClient - feature/quickblox-integration
+11.give to somesh sir ->
+  1.CREATE TABLE lti.quickblox_groups (
+  id INT NOT NULL AUTO_INCREMENT,
+  groupId VARCHAR(50) NOT NULL,
+  chat_group_name VARCHAR(45) NOT NULL,
+  createdBy VARCHAR(45) NULL DEFAULT NULL,
+  createdDate DATETIME NULL DEFAULT NULL,
+  lastModifiedBy VARCHAR(45) NULL DEFAULT NULL,
+  lastModifiedDate DATETIME NULL DEFAULT NULL,
+  student_subject_config_id INT NULL DEFAULT NULL,
+  PRIMARY KEY (id))
+  2.CREATE TABLE lti.quickblox_group_members (
+  id INT NOT NULL AUTO_INCREMENT,
+  timebound_user_mapping_id INT NOT NULL,
+  quickblox_group_id INT NOT NULL,
+  term VARCHAR(255) NOT NULL,
+  specialisation VARCHAR(45) NOT NULL,
+  specialisation_initials VARCHAR(10) NOT NULL,
+  subject VARCHAR(100) NOT NULL,
+  subject_initials VARCHAR(10) NOT NULL,
+  createdBy VARCHAR(45) NULL DEFAULT NULL,
+  createdDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE   CURRENT_TIMESTAMP,
+  lastModifiedBy VARCHAR(45) NULL DEFAULT NULL,
+  lastModifiedDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE   CURRENT_TIMESTAMP,
+  batch VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (id))
+  3.ALTER TABLE lti.quickblox_group_members 
+  ADD COLUMN quickblox_user_id VARCHAR(45) NULL DEFAULT NULL AFTER batch;
